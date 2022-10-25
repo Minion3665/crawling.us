@@ -32,3 +32,5 @@ jobs:
         author: Skyler Grey Deploys <skyler3665+deploys@gmail.com>
         commit_message: Deploy built website to GitHub pages
         fqdn: crawling.us
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
