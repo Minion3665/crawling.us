@@ -1,28 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-const taglines = [
-  "Trans rights!",
-  "Cool stuff on the internet",
-  "Also on GitHub",
-  "Certified tutorial hell survivor",
-  "Now with no dependency conflicts",
-  "As it is...",
-  "Maths, Further Maths, Computer Science and Business Studies",
-  "Are you surprised?",
-  "Clicks Minion Per",
-  "Also available in red",
-  "*Sips tea and writes code*",
-  "Made with Astro",
-  "Made with tea",
-  "And you thought there was never a girl online...",
-  "Send me splash texts to fight the birthday problem",
-  "bPaNnxe",
-  "It'll be fiiiiiiiine",
-  "Living in the Grey area",
-];
-
-const tagline = taglines[Math.floor(Math.random() * taglines.length)];
 ---
 
 <div class="menu">
@@ -32,7 +9,7 @@ const tagline = taglines[Math.floor(Math.random() * taglines.length)];
   <a href="#contact" id="menu-contact"><span>Contact me</span></a>
 </div>
 
-<div class="tagline">@Minion3665: {tagline}</div>
+<div class="tagline">@Minion3665: <span id="tagline"/></div>
 
 <div class="background-container"><div class="background" id="menu-background" /></div>
 
@@ -129,4 +106,31 @@ for (const [index, link] of menuLinks.entries()) {
   document.getElementById(`menu-${link}`).addEventListener("mouseover",
     menuHover(index));
 }
+</script>
+
+<script>
+const taglines = [
+  "Trans rights!",
+  "Cool stuff on the internet",
+  "Also on GitHub",
+  "Certified tutorial hell survivor",
+  "Now with no dependency conflicts",
+  "As it is...",
+  "Maths, Further Maths, Computer Science and Business Studies",
+  "Are you surprised?",
+  "Clicks Minion Per",
+  "Also available in red",
+  "*Sips tea and writes code*",
+  "Made with Astro",
+  "Made with tea",
+  "And you thought there was never a girl online...",
+  "Send me splash texts to fight the birthday problem",
+  "bPaNnxe",
+  "It'll be fiiiiiiiine",
+  "Living in the Grey area",
+];
+
+const tagline = taglines[Math.floor(Math.random() * taglines.length)];
+
+document.getElementById('tagline').innerText = tagline;
 </script>
