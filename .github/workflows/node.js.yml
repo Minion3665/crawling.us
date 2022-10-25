@@ -1,0 +1,34 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ "development" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: yarn install --immutable --immutable-cache --check-cache
+    - run: yarn build
+    - name: GitHub Pages
+      uses: crazy-max/ghaction-github-pages@v3.1.0
+      with:
+        keep_history: true
+        build_dir: dist/
+        follow_symlinks: true
+        committer: Deploy bot
+        author: Skyler Grey Deploys <skyler3665+deploys@gmail.com>
+        commit_message: Deploy built website to GitHub pages
+        fqdn: crawling.us
